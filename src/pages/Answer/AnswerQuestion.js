@@ -33,7 +33,7 @@ const AnswerQuestion = (props) => {
     try {
       console.log(answer);
 
-      const answerRes=await axios.post("http://localhost:4000/api/Answer/", {
+      const answerRes=await axios.post(`${process.env.REACT_APP_base_url}api/Answer/`, {
         answer: answer.answer,
         questionId:questionId,
         user_id: userData.user.id,
@@ -51,7 +51,7 @@ const AnswerQuestion = (props) => {
     // setAskedQuestion(question);
     const fetchAnswers = async () => {
       const answers = await axios.get(
-        `http://localhost:4000/api/Answer/${questionId}`
+        `${process.env.REACT_APP_base_url}/api/Answer/${questionId}`
       );
 
       console.log(answers.data);
