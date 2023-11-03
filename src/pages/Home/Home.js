@@ -6,10 +6,9 @@ import QuestionsList from "../AskQueation/QuestionList";
 import { MdArrowForwardIos } from "react-icons/md";
 
 const Home = ({ logout }) => {
-  const [userData, setUserData] = useContext(UserContext);
-  const [page, setPage] = useState("Home");
+  const [userData] = useContext(UserContext);
+  // const [page, setPage] = useState("Home");
   const [allQuestions, setAllQuestions] = useState([]);
-  let [currrentQuestion, setCurrrentQuestion] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {

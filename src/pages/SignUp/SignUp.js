@@ -14,7 +14,7 @@ const SignUp = () => {
   });
 
   const navigate = useNavigate();
-  const [userData, setUserData] = useContext(UserContext);
+  const [setUserData] = useContext(UserContext);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

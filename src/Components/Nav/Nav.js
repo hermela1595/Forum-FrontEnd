@@ -1,7 +1,5 @@
 import React from "react";
-import hLogo from '../../assets/evangadi-logo-home.png';
-import { LuMenu } from "react-icons/lu";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const Nav = ({logout}) => {
   return (

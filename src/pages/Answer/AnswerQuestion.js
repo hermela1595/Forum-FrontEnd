@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { UserContext } from "../../context/Context";
 import QuestionsList from "../AskQueation/QuestionList";
 
@@ -33,7 +33,7 @@ const AnswerQuestion = (props) => {
     try {
       console.log(answer);
 
-      const answerRes=await axios.post(`${process.env.REACT_APP_base_url}api/Answer/`, {
+      await axios.post(`${process.env.REACT_APP_base_url}api/Answer/`, {
         answer: answer.answer,
         questionId:questionId,
         user_id: userData.user.id,
@@ -68,7 +68,7 @@ const AnswerQuestion = (props) => {
     } catch (err) {
       console.log(">>>>> Can't fetch answers.");
     }
-  }, []);
+  }, [prevAnswers, questionId]);
   return (
     <div className="relative top-4 ms-8">
       <div className=" p-4">
@@ -79,7 +79,7 @@ const AnswerQuestion = (props) => {
         </div>
 
         <div className="mb-4">
-        {prevAnswers?.length != 0 && <h4 className=" text-xl font-semibold">Answer From the Community</h4>}
+        {prevAnswers?.length !== 0 && <h4 className=" text-xl font-semibold">Answer From the Community</h4>}
         </div>
         <div className="answer__list">
           <div className="">

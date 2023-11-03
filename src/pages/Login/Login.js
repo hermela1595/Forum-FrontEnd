@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/Context";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import logo from "../../assets/bg-svg-f.svg";
 import "../../App.css";
 
 const Login = () => {

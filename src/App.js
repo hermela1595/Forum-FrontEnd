@@ -11,7 +11,7 @@ import AskQuestion from "./pages/AskQueation/AskQueation";
 import AnswerQuestion from "./pages/Answer/AnswerQuestion";
 
 function App() {
-  const [userData, setUserData] = useContext(UserContext);
+  const [setUserData] = useContext(UserContext);
 
   const checkLoggedIn = async () => {
     // Check if a token already exists in local storage
