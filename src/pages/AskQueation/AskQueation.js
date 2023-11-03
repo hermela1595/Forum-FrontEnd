@@ -4,7 +4,7 @@ import axios from 'axios';
 import { UserContext } from '../../context/Context';
 
 function AskQuestion() {
-  const [userData, setUserData] = useContext(UserContext);
+  const [userData] = useContext(UserContext);
   const [form, setForm] = useState({});
   const navigate = useNavigate();
 

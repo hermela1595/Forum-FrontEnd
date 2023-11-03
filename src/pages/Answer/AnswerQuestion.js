@@ -10,7 +10,7 @@ const AnswerQuestion = (props) => {
   // console.log(typeof questionId);
   // questionId = parseInt(questionId?.slice(1, 2));
   // questionId = parseInt(questionId);
-  const [userData, setUserData] = useContext(UserContext)
+  const [userData] = useContext(UserContext)
  console.log(userData);
   const [answer, setAnswer] = useState({});
   const [prevAnswers, setPrevAnswers] = useState();
