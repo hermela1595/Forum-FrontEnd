@@ -21,9 +21,12 @@ function App() {
       token = "";
     } else {
       try {
-        const userRes = await axios.get(`${process.env.REACT_APP_base_url}/api/users`, {
-          headers: { "x-auth-token": token },
-        });
+        const userRes = await axios.get(
+          `${process.env.REACT_APP_base_url}/api/users`,
+          {
+            headers: { "x-auth-token": token },
+          }
+        );
         setUserData({
           token,
           user: {
@@ -73,7 +76,10 @@ function App() {
         <Route path="/" element={<Home logout={logout} />} />
 
         <Route path="/askquestion" element={<AskQuestion />} />
-        <Route path="/Answer/:questionId" element={<AnswerQuestion logout={logout} />} />
+        <Route
+          path="/Answer/:questionId"
+          element={<AnswerQuestion logout={logout} />}
+        />
       </Routes>
       <Footer />
     </Router>
