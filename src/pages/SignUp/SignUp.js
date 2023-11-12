@@ -41,8 +41,9 @@ const SignUp = () => {
 
       localStorage.setItem("auth-token", loginRes.data.token);
       navigate("/login");
-    } catch (err) {
-      console.log("Problem:");
+    } 
+    catch (error) {
+      console.log(error.response.data.error);
     }
   };
 
