@@ -33,14 +33,20 @@ const SignUp = () => {
           password: form.password,
         }
       );
-
-      setUserData({
-        token: loginRes.data.token,
-        user: loginRes.data.user,
-      });
-
-      localStorage.setItem("auth-token", loginRes.data.token);
-      navigate("/login");
+      
+      if (loginRes && loginRes.data) {
+        setUserData({
+          token: loginRes.data.token,
+          user: loginRes.data.user,
+        });
+      
+        localStorage.setItem("auth-token", loginRes.data.token);
+        navigate("/login");
+      } else {
+        console.error("Login response is not as expected:", loginRes);
+        // Handle the error or inform the user accordingly
+      }
+      
     } 
     catch (error) {
       console.log(error.response.data.error);
