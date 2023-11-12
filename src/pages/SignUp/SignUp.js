@@ -24,29 +24,23 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      await axios.post(`${process.env.REACT_APP_base_url}/api/users`, form);
+      await axios.post("https://dark-pear-hummingbird-gear.cyclic.app/api/users", form);
 
       const loginRes = await axios.post(
-        `${process.env.REACT_APP_base_url}/api/users/login`,
+        "https://dark-pear-hummingbird-gear.cyclic.app/api/users/login",
         {
           email: form.email,
           password: form.password,
         }
       );
-      
-      if (loginRes && loginRes.data) {
-        setUserData({
-          token: loginRes.data.token,
-          user: loginRes.data.user,
-        });
-      
-        localStorage.setItem("auth-token", loginRes.data.token);
-        navigate("/login");
-      } else {
-        console.error("Login response is not as expected:", loginRes);
-        // Handle the error or inform the user accordingly
-      }
-      
+
+      setUserData({
+        token: loginRes.data.token,
+        user: loginRes.data.user,
+      });
+
+      localStorage.setItem("auth-token", loginRes.data.token);
+      navigate("/login");
     } 
     catch (error) {
       console.log(error.response.data.error);
