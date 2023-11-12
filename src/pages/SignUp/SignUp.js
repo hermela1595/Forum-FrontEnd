@@ -42,7 +42,7 @@ const SignUp = () => {
       localStorage.setItem("auth-token", loginRes.data.token);
       navigate("/");
     } catch (err) {
-      console.log("Problem:", err.response.data.msg);
+      console.log("Problem:");
     }
   };
 
