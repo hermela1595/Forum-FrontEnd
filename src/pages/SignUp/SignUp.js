@@ -40,7 +40,7 @@ const SignUp = () => {
       });
 
       localStorage.setItem("auth-token", loginRes.data.token);
-      navigate("/");
+      navigate("/login");
     } catch (err) {
       console.log("Problem:");
     }
