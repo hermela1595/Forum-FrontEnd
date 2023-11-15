@@ -6,10 +6,6 @@ import QuestionsList from "../AskQueation/QuestionList";
 
 const AnswerQuestion = (props) => {
   let { questionId } = useParams();
-
-  // console.log(typeof questionId);
-  // questionId = parseInt(questionId?.slice(1, 2));
-  // questionId = parseInt(questionId);
   const [userData] = useContext(UserContext)
  console.log(userData);
   const [answer, setAnswer] = useState({});
@@ -33,13 +29,11 @@ const AnswerQuestion = (props) => {
     try {
       console.log(answer);
 
-      await axios.post(`${process.env.REACT_APP_base_url}api/Answer/`, {
+      await axios.post(`${process.env.REACT_APP_base_url}/api/Answer/`, {
         answer: answer.answer,
         questionId:questionId,
         user_id: userData.user.id,
       });
-
-      console.log(">>>>> post answer 1");
       console.log(">>>>>>>>  your answer is submitted");
       window.location.reload(false);
     } catch (error) {
@@ -48,7 +42,6 @@ const AnswerQuestion = (props) => {
   };
 
   useEffect(() => {
-    // setAskedQuestion(question);
     const fetchAnswers = async () => {
       const answers = await axios.get(
         `${process.env.REACT_APP_base_url}/api/Answer/${questionId}`
@@ -59,7 +52,7 @@ const AnswerQuestion = (props) => {
       setPrevAnswers(() => {
         return answers.data?.data;
       });
-      console.log(">>>>>>prevAnswers ", prevAnswers);
+      // console.log(">>>>>>prevAnswers ", prevAnswers);
     };
     try {
       fetchAnswers();

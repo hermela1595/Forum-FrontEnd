@@ -15,8 +15,6 @@ const Home = ({ logout }) => {
     if (!userData.user) navigate("/login");
     // console.log("Home useEffect: 0");
     const fetchQuestions = async () => {
-      // console.log("Home useEffect >> fetchQuestions: 1");
-
       let questions = await axios.get(
         `${process.env.REACT_APP_base_url}/api/questions/all`
       );

@@ -24,10 +24,10 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      await axios.post("https://dark-pear-hummingbird-gear.cyclic.app/api/users", form);
+      await axios.post(`${process.env.REACT_APP_base_url}/api/users`, form);
 
       const loginRes = await axios.post(
-        "https://dark-pear-hummingbird-gear.cyclic.app/api/users/login",
+        `${process.env.REACT_APP_base_url}/api/users/login`,
         {
           email: form.email,
           password: form.password,
